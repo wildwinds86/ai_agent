@@ -3,7 +3,7 @@ import os
 def get_file_content(working_directory, file_path):
 	max_chars = 10000
 	abs_working_dir = os.path.abspath(working_directory)
-	abs_file_path = os.path.abspath(file_path)
+	abs_file_path = os.path.abspath(str(os.path.join(working_directory, file_path)))
 
 	if not abs_file_path.startswith(abs_working_dir, 0, len(abs_working_dir)):
 		return f'Error: Cannot read "{file_path}" as it is outside the permitted working directory'
